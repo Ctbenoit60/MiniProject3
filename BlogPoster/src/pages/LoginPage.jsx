@@ -83,9 +83,9 @@ export default function LoginPage() {
               label="Remember me"
             />
             <Button
+            className='primary'
               type="submit"
               fullWidth
-              variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In

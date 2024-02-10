@@ -108,9 +108,9 @@ export default function SignUp() {
               </Grid>
             </Grid>
             <Button
+            className='primary'
               type="submit"
               fullWidth
-              variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
               Sign Up
