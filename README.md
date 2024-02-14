@@ -19,11 +19,11 @@ Before you begin, make sure you have Node.js and npm installed on your machine.
 2. Navigate to the project directory: cd MiniProject3
 
 3. Install the project dependencies: npm install
-   1. "npm install @mui/material @emotion/react @emotion/styled"
-   2. "npm install react-router"
-   3. npm install react-router-dom
-   4. npm install -D tailwindcss
-   5. npx tailwindcss init 
+   >1. npm install @mui/material @emotion/react @emotion/styled
+   >2. npm install react-router
+   >3. npm install react-router-dom
+   >4. npm install -D tailwindcss
+   >5. npx tailwindcss init 
 
 ## Usage
 
