@@ -1,16 +1,17 @@
 const express = require("express");
+const cors = require('cors');
 const app = express();
 
-app.use(express.json());
 
-app.get('test', (req, res) => {
+app.use(cors({
+    credentials: true,
+    origin:'http://127.0.0.1:5173',
+}));
+
+app.get('/test', (req, res) => {
     res.json('test ok')
 });
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-console.log(`Server is running on port
-${PORT}.`);
-});
+app.listen(4000);
 
 ///This is where I left off. Need to figure out if I want to use MySQL or MongoDb. 
