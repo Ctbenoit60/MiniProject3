@@ -6,9 +6,7 @@ Fullstack Post App using Mongo, Express, React, Node
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
-- [Contributing](#contributing)
-- [Credits](#credits)
-- [License](#license)
+
 
 ## Installation
 
