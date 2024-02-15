@@ -41,7 +41,11 @@ export default function SignUp() {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.get('http://127.0.0.1:4000/test')
+    axios.post('http://127.0.0.1:4000/signup', {
+      name,
+      email,
+      password,
+    })
   };
 
   return (

@@ -3,15 +3,19 @@ const cors = require('cors');
 const app = express();
 
 
-app.use(cors({
-    credentials: true,
-    origin:'http://127.0.0.1:5173',
-}));
+app.use(cors())
+
+app.use(express.json())
 
 app.get('/test', (req, res) => {
     res.json('test ok')
 });
 
+app.post(' ', (req,res) => {
+const {email, name, password} = req.body;
+res.json(email, name, password);
+});
+
 app.listen(4000);
 
-///This is where I left off. Need to figure out if I want to use MySQL or MongoDb. 
+///This is where I left off. Getting a 404 when trying to post
