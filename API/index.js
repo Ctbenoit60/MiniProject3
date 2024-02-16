@@ -16,6 +16,10 @@ const {email, name, password} = req.body;
 res.json(email, name, password);
 });
 
-app.listen(4000);
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+console.log(`Server is running on port
+${PORT}.`);
+});
 
 ///This is where I left off. Getting a 404 when trying to post
