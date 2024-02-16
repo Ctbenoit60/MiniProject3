@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import Layout from "./Layout";
 import SignUp from "./pages/SignUpPage";
 import axios from "axios";
+import CalendarPage from "./pages/CalendarPage";
 
 axios.defaults.baseURL = 'http://127.0.0.1:4000';
 
@@ -15,6 +16,7 @@ function App() {
         <Route index element={<IndexPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/calendar" element={<CalendarPage />} />
       </Route>
     </Routes>
   );
