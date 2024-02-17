@@ -13,6 +13,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import axios from "axios";
+// import { useHistory } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -35,19 +36,21 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+  // const history = useHistory();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://127.0.0.1:4000/signup', {
+    axios.post('http://localhost:4000/signup', {
       name,
       email,
       password,
     })
+    // .then(res => {history.push('/calendar')});
   };
-
+//TO DO: WHy does useHistory not working???
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">

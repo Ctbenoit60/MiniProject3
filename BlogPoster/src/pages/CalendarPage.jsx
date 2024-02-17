@@ -8,7 +8,7 @@ import * as bootstrap from "bootstrap"; // Importing bootstrap for popover
 import "bootstrap/dist/css/bootstrap.min.css"; // Importing Bootstrap CSS
 import "../index.css"; // Importing custom CSS
 
-const defaultImageUrl = 'https://images6.alphacoders.com/127/1272198.jpg';
+const defaultImageUrl = '';
 
 export default function CalendarPage() {
   useEffect(() => {
