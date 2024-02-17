@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { TextField, Button } from "@mui/material";
+import { useEffect } from 'react';
+import { TextField, Button } from '@mui/material';
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -8,25 +8,15 @@ import * as bootstrap from "bootstrap"; // Importing bootstrap for popover
 import "bootstrap/dist/css/bootstrap.min.css"; // Importing Bootstrap CSS
 import "../index.css"; // Importing custom CSS
 
-export default function MyCalendar() {
-  const [imageUrl, setImageUrl] = useState("");
+const defaultImageUrl = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallhaven.cc%2Fw%2Fzyo11j&psig=AOvVaw1K1Sp12wosqpADCUsMFpjC&ust=1708137738207000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCLDt14rrroQDFQAAAAAdAAAAABAE';
 
+export default function CalendarPage() {
   useEffect(() => {
-    const defaultImageUrl =
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallhaven.cc%2Fw%2Fzyo11j&psig=AOvVaw1K1Sp12wosqpADCUsMFpjC&ust=1708137738207000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCLDt14rrroQDFQAAAAAdAAAAABAE";
-    setImageUrl(defaultImageUrl);
-
-    if (imageUrl) {
-      document.body.style.backgroundImage = `url(${imageUrl})`;
-      document.body.style.backgroundSize = "cover";
-      document.body.style.backgroundPosition = "center";
-      document.body.style.backgroundRepeat = "no-repeat";
-    }
+    document.body.style.backgroundImage = `url(${defaultImageUrl})`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundRepeat = 'no-repeat';
   }, []);
-
-  const handleInputChange = (event) => {
-    setImageUrl(event.target.value);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,8 +26,8 @@ export default function MyCalendar() {
   const events = [
     {
       title: "Doctors Apt",
-      start: "2024-01-05T08:00:00",
-      end: "2024-01-05T09:00:00",
+      start: "2024-02-05T08:00:00",
+      end: "2024-02-05T09:00:00",
     },
   ];
 
@@ -49,11 +39,10 @@ export default function MyCalendar() {
             <div className="mb-3">
               <TextField
                 id="imageUrl"
-                label="Image URL"
+                label="Background Image URL"
                 variant="outlined"
                 fullWidth
-                value={imageUrl}
-                onChange={handleInputChange}
+                defaultValue={defaultImageUrl}
               />
             </div>
             <Button type="submit" variant="contained" color="primary">
