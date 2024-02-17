@@ -11,7 +11,7 @@ app.get('/test', (req, res) => {
     res.json('test ok')
 });
 
-app.post(' ', (req,res) => {
+app.post('/signup', (req,res) => {
 const {email, name, password} = req.body;
 res.json(email, name, password);
 });
@@ -22,4 +22,4 @@ console.log(`Server is running on port
 ${PORT}.`);
 });
 
-///This is where I left off. Getting a 404 when trying to post
+// TO DO: Figure out how to redirect using the react-router-dom
