@@ -8,7 +8,7 @@ import * as bootstrap from "bootstrap"; // Importing bootstrap for popover
 import "bootstrap/dist/css/bootstrap.min.css"; // Importing Bootstrap CSS
 import "../index.css"; // Importing custom CSS
 
-const defaultImageUrl = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallhaven.cc%2Fw%2Fzyo11j&psig=AOvVaw1K1Sp12wosqpADCUsMFpjC&ust=1708137738207000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCLDt14rrroQDFQAAAAAdAAAAABAE';
+const defaultImageUrl = 'https://images6.alphacoders.com/127/1272198.jpg';
 
 export default function CalendarPage() {
   useEffect(() => {
@@ -52,6 +52,7 @@ export default function CalendarPage() {
         </div>
       </div>
       <div className="row mt-4">
+        <div className='background-color: #ffffff; border: 1px solid black; opacity: 0.6;'>
         <div className="col-md-12">
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
@@ -73,6 +74,7 @@ export default function CalendarPage() {
               });
             }}
           />
+        </div>
         </div>
       </div>
     </div>
