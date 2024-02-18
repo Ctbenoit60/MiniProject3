@@ -3,3 +3,5 @@ export default function Background () {
         "Hellow"
     )
 }
+
+//TO DO: Use this for API images? https://jsonplaceholder.typicode.com/guide/
