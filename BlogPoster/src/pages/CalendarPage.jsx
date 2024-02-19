@@ -1,27 +1,30 @@
-import { useEffect } from 'react';
-import { TextField, Button } from '@mui/material';
+// import { useEffect } from 'react';
+import {  Button } from '@mui/material';
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import { useNavigate } from "react-router-dom";
 import * as bootstrap from "bootstrap"; // Importing bootstrap for popover
 import "bootstrap/dist/css/bootstrap.min.css"; // Importing Bootstrap CSS
 import "../index.css"; // Importing custom CSS
 
-const defaultImageUrl = '';
+// const defaultImageUrl = '';
 
 export default function CalendarPage() {
-  useEffect(() => {
-    document.body.style.backgroundImage = `url(${defaultImageUrl})`;
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center';
-    document.body.style.backgroundRepeat = 'no-repeat';
-  }, []);
+  // useEffect(() => {
+  //   document.body.style.backgroundImage = `url(${defaultImageUrl})`;
+  //   document.body.style.backgroundSize = 'cover';
+  //   document.body.style.backgroundPosition = 'center';
+  //   document.body.style.backgroundRepeat = 'no-repeat';
+  // }, []);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Here you can send the imageUrl to your API or perform any other actions
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   // Here you can send the imageUrl to your API or perform any other actions
+  // };
+
+// TO DO: Need to bring event handler to the background page. In the background PR
 
   const events = [
     {
@@ -31,21 +34,18 @@ export default function CalendarPage() {
     },
   ];
 
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/background`; 
+    navigate(path);
+  }
+
   return (
     <div className="container mt-4">
       <div className="row">
         <div className="col-md-6">
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <TextField
-                id="imageUrl"
-                label="Background Image URL"
-                variant="outlined"
-                fullWidth
-                defaultValue={defaultImageUrl}
-              />
-            </div>
-            <Button type="submit" variant="contained" color="primary">
+          <form>
+            <Button type="submit" variant="contained" color="primary" onClick={routeChange}>
               Set Background Image
             </Button>
           </form>
