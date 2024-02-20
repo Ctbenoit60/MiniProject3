@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-// import { useEffect } from "react";
-import { Button } from "@mui/material";
-=======
+
 // import { useEffect } from 'react';
->>>>>>> calendarPage
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -27,11 +23,7 @@ export default function CalendarPage() {
   //   // Here you can send the imageUrl to your API or perform any other actions
   // };
 
-<<<<<<< HEAD
   // TO DO: This needs to be moved to a Themes page where a user can select their own background
-=======
-  // TO DO: Need to bring event handler to the background page. In the background PR
->>>>>>> calendarPage
 
   const events = [
     {
@@ -43,16 +35,6 @@ export default function CalendarPage() {
 
   return (
     <div className="container mt-4">
-<<<<<<< HEAD
-      <div className="row">
-        <div className="col-md-6">
-          <Button type="submit" variant="contained" color="primary">
-            Set Your Own Background
-          </Button>
-        </div>
-      </div>
-=======
->>>>>>> calendarPage
       <div className="row mt-4">
         <div className="background-color: #ffffff; border: 1px solid black; opacity: 0.6;">
           <div className="col-md-12">
