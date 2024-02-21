@@ -1,5 +1,4 @@
 
-// import { useEffect } from 'react';
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -8,22 +7,8 @@ import * as bootstrap from "bootstrap"; // Importing bootstrap for popover
 import "bootstrap/dist/css/bootstrap.min.css"; // Importing Bootstrap CSS
 import "../index.css"; // Importing custom CSS
 
-// const defaultImageUrl = '';
 
 export default function CalendarPage() {
-  // useEffect(() => {
-  //   document.body.style.backgroundImage = `url(${defaultImageUrl})`;
-  //   document.body.style.backgroundSize = 'cover';
-  //   document.body.style.backgroundPosition = 'center';
-  //   document.body.style.backgroundRepeat = 'no-repeat';
-  // }, []);
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // Here you can send the imageUrl to your API or perform any other actions
-  // };
-
-  // TO DO: This needs to be moved to a Themes page where a user can select their own background
 
   const events = [
     {
