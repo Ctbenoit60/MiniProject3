@@ -37,20 +37,21 @@ const defaultTheme = createTheme();
 
 export default function SignUp() {
   // const history = useHistory();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [fullName, setName] = useState("");
+  const [emailId, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:4000/signup', {
-      name,
-      email,
+    axios.post('http://localhost:4000/api/users/signup', {
+      fullName,
+      emailId,
       password,
     })
-    // .then(res => {history.push('/calendar')});
+    // SUDO: Work on error handling for trying to use existing email
+    // SUDO: Work on redirecting on status 200 from SignUp Page back to Login Page
   };
-//TO DO: WHy does useHistory not working???
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
@@ -85,7 +86,7 @@ export default function SignUp() {
                   id="fullName"
                   label="Full Name"
                   autoFocus
-                  value={name}
+                  value={fullName}
                   onChange={(event) => setName(event.target.value)}
                 />
               </Grid>
@@ -97,7 +98,7 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
-                  value={email}
+                  value={emailId}
                   onChange={(event) => setEmail(event.target.value)}
                 />
               </Grid>
