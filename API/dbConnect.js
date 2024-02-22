@@ -11,6 +11,7 @@ Mongoose.connect(uri)
 
 // Get the default connection
 const db = Mongoose.connection;
+
 // Bind connection to error event (to get notification ofconnection errors)
 db.on("error", console.error.bind(console, "MongoDBconnection error:"));
 
