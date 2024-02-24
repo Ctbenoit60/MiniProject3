@@ -49,7 +49,7 @@ const updateUser = (req, res) => {
 
   const loginUser = (req, res) => {
     console.log("login email", req.body);
-    Models.User.find({ email: req.body.email })
+    Models.User.find({ emailId: req.body.emailId })
       .then((data) => {
         console.log(data);
         if (data.length > 0) {
