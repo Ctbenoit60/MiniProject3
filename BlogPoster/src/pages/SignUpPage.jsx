@@ -13,7 +13,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import axios from "axios";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -36,10 +36,11 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  // const history = useHistory();
   const [fullName, setName] = useState("");
   const [emailId, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate()
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -47,9 +48,19 @@ export default function SignUp() {
       fullName,
       emailId,
       password,
+    }) .then(response => {
+      // Handle successful response
+      console.log('Response:', response.data);
+      // Navigate to another page
+      navigate('/calendar');
     })
+    .catch(error => {
+      // Handle error
+      console.error('Error:', error);
+    });
     // SUDO: Work on error handling for trying to use existing email
     // SUDO: Work on redirecting on status 200 from SignUp Page back to Login Page
+    //SUDO: Check status / if 200 then direct to Calendar
   };
 
   return (

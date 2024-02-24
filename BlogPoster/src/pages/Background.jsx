@@ -3,6 +3,7 @@
 export default function Background () {
     return (
         "Hellow"
+        //SUDO: Add tailwindui to populate cards / Add api to populate cards
     )
 }
 
