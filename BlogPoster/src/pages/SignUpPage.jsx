@@ -13,6 +13,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -35,17 +36,31 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [fullName, setName] = useState("");
+  const [emailId, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate()
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://127.0.0.1:4000/signup', {
-      name,
-      email,
+    axios.post('http://localhost:4000/api/users/signup', {
+      fullName,
+      emailId,
       password,
+    }) .then(response => {
+      // Handle successful response
+      console.log('Response:', response.data);
+      // Navigate to another page
+      navigate('/calendar');
     })
+    .catch(error => {
+      // Handle error
+      console.error('Error:', error);
+    });
+    // SUDO: Work on error handling for trying to use existing email
+    // SUDO: Work on redirecting on status 200 from SignUp Page back to Login Page
+    //SUDO: Check status / if 200 then direct to Calendar
   };
 
   return (
@@ -82,7 +97,7 @@ export default function SignUp() {
                   id="fullName"
                   label="Full Name"
                   autoFocus
-                  value={name}
+                  value={fullName}
                   onChange={(event) => setName(event.target.value)}
                 />
               </Grid>
@@ -94,7 +109,7 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
-                  value={email}
+                  value={emailId}
                   onChange={(event) => setEmail(event.target.value)}
                 />
               </Grid>

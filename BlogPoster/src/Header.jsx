@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom"
+import {  Button } from '@mui/material';
+import { useNavigate, Link } from "react-router-dom"
 export default function Header() {
+
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/background`; 
+    navigate(path);
+  }
     return (
-        <header className="flex justify-between">
+        <header className="flex flex-col h-full bg-grey-500 gap-5">
         <a href="" className="flex items-center gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -19,25 +26,6 @@ export default function Header() {
           </svg>
           <span className="font-bold text-xl">Personalizz</span>
         </a>
-        <div className="flex items center border border-gray-300 rounded-full py-2 px-4">
-          <div>Search maybe or just titlte</div>
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-              />
-            </svg>
-          </button>
-        </div>
         <div className="flex items center gap-2 border border-gray-300 rounded-full py-2 px-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -68,6 +56,15 @@ export default function Header() {
             </svg>
           </Link>
         </div>
+        <div className="row">
+        <div className="col-md-6">
+          <form>
+            <Button type="submit" variant="contained" color="primary" onClick={routeChange}>
+              Choose Mood
+            </Button>
+          </form>
+        </div>
+      </div>
       </header>
     )
 }
