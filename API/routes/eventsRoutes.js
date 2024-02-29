@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const eventController = require('../controllers/eventController.js');
+const eventController = require('../controllers');
 
 // GET all events
 // Example endpoint: http://localhost:4000/api/events
