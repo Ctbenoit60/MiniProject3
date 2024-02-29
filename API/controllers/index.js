@@ -1,4 +1,4 @@
 module.exports = {
-    user: require('./userController'),
-    // bgController: require('./bgController')
+    userController: require('./userController'),
+    eventController: require('./eventController'),
     }
