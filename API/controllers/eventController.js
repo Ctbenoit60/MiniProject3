@@ -1,15 +1,13 @@
 const Models = require("../models");
 
 // Retrieve all events from the database
-const getEvents = (req, res) => {
-  Models.Event.findAll({})
-    .then((events) => {
-      res.status(200).json(events);
-    })
-    .catch((error) => {
-      console.error(error);
-      res.status(500).send({ message: "Error retrieving events", error: error.message });
-    });
+const getEvents = (res) => {
+  Models.Event.find({})
+  .then((data) => res.send( {result: 200, data: data}))
+  .catch((err) => {
+      console.log(err);
+      res.send({ result: 500, error: err.message});
+  });
 };
 
 // Create a new event in the database

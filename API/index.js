@@ -6,14 +6,15 @@ require("dotenv").config();
 
 let dbConnect = require("./dbConnect");
 let userRoutes = require("./routes/userRoutes");
-// let bgRoutes = require("./routes/bgRoutes")
+let eventRoutes = require("./routes/eventsRoutes");
+
 
 app.use(cors())
 
 app.use(express.json())
 
 app.use("/api/users", userRoutes);
-//app.use("/api/background", bgRoutes);
+app.use("/api/events", eventRoutes);
 
 app.get('/test', (req, res) => {
     res.json('test ok')
