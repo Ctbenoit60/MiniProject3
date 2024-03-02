@@ -4,11 +4,18 @@
 
 button.primary{
   background-color: transparent;
-  @apply p-2 w-full text-black rounded-full;
 }
 
 div.transbox {
   background-color: #ffffff;
   border: 1px solid black;
   opacity: 0.6;
+}
+
+div.container {
+  width: 100%; /* 100% of viewport width */
+  height: 100%; /* 100% of viewport height */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
