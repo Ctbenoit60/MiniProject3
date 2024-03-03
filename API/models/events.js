@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const eventSchema = new Schema({
-  name: { type: String, required: true },
+  title: { type: String, required: true },
   description: { type: String },
-  start_date: { type: Date, required: true },
-  end_date: { type: Date, required: true },
+  start: { type: Date, required: true },
+  time: { type: String, required: true },
   // Other fields (location, attendees, reminders, etc.)
 });
 
