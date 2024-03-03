@@ -59,8 +59,6 @@ export default function SignUp() {
       console.error('Error:', error);
     });
     // SUDO: Work on error handling for trying to use existing email
-    // SUDO: Work on redirecting on status 200 from SignUp Page back to Login Page
-    //SUDO: Check status / if 200 then direct to Calendar
   };
 
   return (
