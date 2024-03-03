@@ -5,20 +5,26 @@ import interactionPlugin from "@fullcalendar/interaction";
 import * as bootstrap from "bootstrap"; // Importing bootstrap for popover
 import "bootstrap/dist/css/bootstrap.min.css"; // Importing Bootstrap CSS
 import "../index.css"; // Importing custom CSS
-// import { styled } from "@mui/system";
+import { Grid } from "@mui/material";
+import Box from '@mui/system/Box';
 import BackgroundModal from "../components/BackgroundModal";
 import EventComponent from "../components/EventModal";
 
+
+
 export default function Calendar() {
   return (
-    <div className="container mt-4">
-      <div className="background-color: #ffffff; border: 1px solid black; opacity: 0.6;">
-        <div className="flex flex-row">
-          <EventComponent />
-          <BackgroundModal />
-        </div>
-      </div>
-      <div>
+    <div>
+      <Box m="20px">
+      <Grid container spacing={2}>
+      <Grid item xs={4} > 
+        <EventComponent />
+      <br />
+        <BackgroundModal />
+      </Grid>
+      <Grid item xs={8}
+      sx={{ bgcolor: 'text.secondary', color: 'background.paper'}}
+      >
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           defaultView="dayGridMonth"
@@ -39,7 +45,9 @@ export default function Calendar() {
             });
           }}
         />
-      </div>
+      </Grid>
+      </Grid>
+      </Box>
     </div>
   );
 }
