@@ -16,12 +16,18 @@ import { useEffect, useRef, useState } from "react";
 export default function Calendar() {
   const [events, setEvents] = useState([]);
   const calendarRef = useRef(null);
+  
 
   useEffect(() => {
     fetch(`http://localhost:4000/api/events`)
-    .then(response => response.json())
-    .then(json => setEvents(json))
-  }, [events])
+      .then(response => response.json())
+      .then(json => {
+        console.log(json); // Log the data received from the API
+        setEvents(json);  // Update the events state with the fetched data
+      })
+  }, []);
+  
+  
 
  
 
@@ -51,7 +57,7 @@ export default function Calendar() {
                 center: "title",
                 end: "dayGridMonth, timeGridWeek, timeGridDay",
               }}
-              // eventSet={(events) => setEvents(events)}
+              eventSet={(event) => setEvents(event)}
               eventDidMount={(info) => {
                 return new bootstrap.Popover(info.el, {
                   title: info.event.title,
