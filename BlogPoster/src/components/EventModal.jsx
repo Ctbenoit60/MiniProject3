@@ -28,6 +28,7 @@ function EventComponent() {
     if (title && eventDate) {
         const newEvent = {
             title: title,
+            description: eventDescription,
             start: eventDate,
             time: eventTime,
         };

@@ -10,12 +10,15 @@ import Box from "@mui/system/Box";
 import BackgroundModal from "../components/BackgroundModal";
 // import EventComponent from "../components/EventModal";
 import { useEffect, useRef, useState } from "react";
+import CalModal2 from '../components/CalModal2'
 
 
 
 export default function Calendar() {
   const [events, setEvents] = useState([]);
   const calendarRef = useRef(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
   
 
   useEffect(() => {
@@ -25,7 +28,8 @@ export default function Calendar() {
 
         const formattedEvents = result.data.map(event => ({
           id: event._id, 
-          title: event.title, 
+          title: event.title,
+          // description: event.description, 
           start: event.start, 
         }));
         setEvents(formattedEvents);
@@ -37,7 +41,77 @@ export default function Calendar() {
   
   console.log("set events:", events)
   
+  const handleEventClick = (clickInfo) => {
+    // Set the selected event and open the modal
+    setSelectedEvent({
+      id: clickInfo.event.id,
+      title: clickInfo.event.title,
+      start: clickInfo.event.start,
+      end: clickInfo.event.end,
+      allDay: clickInfo.event.allDay,
+    });
+    setModalOpen(true);
+  };
+
+  const handleEventUpdate = async (event) => {
+    try {
+      const response = await fetch(
+        `http://localhost:4000/api/events/${event.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...event,
+            userId: user?.user?.id,
+          }),
+        }
+      );
+      if (response.ok) {
+        const calendarApi = calendarRef.current.getApi();
+        let eventToUpdate = calendarApi.getEventById(event.id);
+        if (eventToUpdate) {
+          eventToUpdate.setProp("title", event.title);
+          eventToUpdate.setDates(event.start, event.end);
+        }
+        setEvents(calendarApi.getEvents());
+        onClose();
+      } else {
+        const data = await response.json();
+        console.error("Failed to update event:", data.message);
+      }
+    } catch (error) {
+      console.error("Error updating event:", error);
+    }
+  };
   
+  // Function to handle deleting an event
+  const handleEventDelete = async (event) => {
+    try {
+      const response = await fetch(
+        `http://localhost:4000/api/events/${event.id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (response.ok) {
+        // Remove the event from the calendar
+        const calendarApi = calendarRef.current.getApi();
+        let eventToDelete = calendarApi.getEventById(event.id);
+        if (eventToDelete) {
+          eventToDelete.remove();
+        }
+        setEvents(calendarApi.getEvents());
+        setModalOpen(false);
+      } else {
+        const data = await response.json();
+        console.error("Failed to delete event:", data.message);
+      }
+    } catch (error) {
+      console.error("Error deleting event:", error);
+    }
+  };
 
  
 
@@ -71,6 +145,7 @@ export default function Calendar() {
                 center: "title",
                 end: "dayGridMonth, timeGridWeek, timeGridDay",
               }}
+              eventClick={handleEventClick}
               eventSet={(event) => setEvents(event)}
               eventDidMount={(info) => {
                 return new bootstrap.Popover(info.el, {
@@ -78,12 +153,21 @@ export default function Calendar() {
                   placement: "auto",
                   trigger: "hover",
                   customClass: "popoverStyle",
-                  content: "<p>Find the Tardis</p>",
+                  // content: info.event.description,
                   html: true,
                 });
               }}
             />
           </Grid>
+          {/* Modal for adding, updating, and deleting events */}
+      <CalModal2
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        selectedEvent={selectedEvent}
+        onUpdateEvent={handleEventUpdate}
+        onDeleteEvent={handleEventDelete}
+      />
+    
         </Grid>
       </Box>
     </div>

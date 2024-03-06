@@ -1,4 +1,3 @@
-// import { useEffect } from 'react';
 import EventModal from "../components/EventModal"
 
 
