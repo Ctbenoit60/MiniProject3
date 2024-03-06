@@ -17,6 +17,7 @@ function EventComponent() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (title && eventDate) {
         const newEvent = {
             title: title,

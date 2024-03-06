@@ -9,28 +9,21 @@ import { Grid } from "@mui/material";
 import Box from "@mui/system/Box";
 import BackgroundModal from "../components/BackgroundModal";
 import EventComponent from "../components/EventModal";
-import { useRef, useState } from "react";
-import axios from "axios";
-import moment from "moment";
+import { useEffect, useRef, useState } from "react";
+
+
 
 export default function Calendar() {
   const [events, setEvents] = useState([]);
   const calendarRef = useRef(null);
 
-  // const newEvent = event => {
-  //   const calendarApi = calendarRef.current.getApi()
-  //   calendarApi.addEvent(event);
-  // }
+  useEffect(() => {
+    fetch(`http://localhost:4000/api/events`)
+    .then(response => response.json())
+    .then(json => setEvents(json))
+  }, [events])
 
-  async function handleEventsSet(data) {
-    const response = await axios.get(
-      "http://localhost:4000/api/events" +
-        moment(data.start).toISOString() +
-        "&ends" +
-        moment(data.end).toISOString()
-    );
-    setEvents(response.data);
-  }
+ 
 
   // SUDO: https://www.npmjs.com/package/moment
   // SUDO: How can I use a useEffect to do the commented out code
@@ -58,7 +51,7 @@ export default function Calendar() {
                 center: "title",
                 end: "dayGridMonth, timeGridWeek, timeGridDay",
               }}
-              eventSet={(event) => handleEventsSet(event)}
+              // eventSet={(events) => setEvents(events)}
               eventDidMount={(info) => {
                 return new bootstrap.Popover(info.el, {
                   title: info.event.title,
