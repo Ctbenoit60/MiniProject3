@@ -21,11 +21,21 @@ export default function Calendar() {
   useEffect(() => {
     fetch(`http://localhost:4000/api/events`)
       .then(response => response.json())
-      .then(json => {
-        console.log(json); // Log the data received from the API
-        setEvents(json);  // Update the events state with the fetched data
+      .then(result => { 
+
+        const formattedEvents = result.data.map(event => ({
+          id: event._id, 
+          title: event.title, 
+          start: event.start, 
+        }));
+        setEvents(formattedEvents);
       })
+      .catch(error => {
+        console.error('Error fetching events:', error);
+      });
   }, []);
+  
+  console.log("set events:", events)
   
   
 
