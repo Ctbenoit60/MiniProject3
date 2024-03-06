@@ -78,7 +78,7 @@ function EventComponent() {
               onChange={(e) => setEventDescription(e.target.value)}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <TextField
               variant="outlined"
               required
@@ -91,25 +91,6 @@ function EventComponent() {
               onChange={(e) => setEventDate(e.target.value)}
               InputLabelProps={{
                 shrink: true,
-              }}
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              variant="outlined"
-              required
-              fullWidth
-              id="eventTime"
-              label="Time"
-              name="eventTime"
-              type="time"
-              value={eventTime}
-              onChange={(e) => setEventTime(e.target.value)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-              inputProps={{
-                step: 300, // 5 min
               }}
             />
           </Grid>
