@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { TextField, Button, Grid, Typography } from '@mui/material';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -14,6 +16,9 @@ function EventComponent() {
   const [eventDescription, setEventDescription] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [eventTime, setEventTime] = useState("");
+
+  const navigate = useNavigate();
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,6 +41,8 @@ function EventComponent() {
                 setEventDescription("");
                 setEventDate("");
                 setEventTime("");
+                // Navigates to back to calendar on submit
+                navigate("/calendar");
             })
             .catch(function (error) {
                 console.log(error);

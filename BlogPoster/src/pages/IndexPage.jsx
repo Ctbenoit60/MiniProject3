@@ -2,7 +2,7 @@
 export default function IndexPage() {
     return(
         <div>
-       index page here 
+       Future Promo Page
       </div>
     )
  

@@ -5,10 +5,10 @@ import interactionPlugin from "@fullcalendar/interaction";
 import * as bootstrap from "bootstrap"; // Importing bootstrap for popover
 import "bootstrap/dist/css/bootstrap.min.css"; // Importing Bootstrap CSS
 import "../index.css"; // Importing custom CSS
-import { Grid } from "@mui/material";
+import { Grid, Link } from "@mui/material";
 import Box from "@mui/system/Box";
 import BackgroundModal from "../components/BackgroundModal";
-import EventComponent from "../components/EventModal";
+// import EventComponent from "../components/EventModal";
 import { useEffect, useRef, useState } from "react";
 
 
@@ -38,7 +38,11 @@ export default function Calendar() {
       <Box m="20px">
         <Grid container spacing={2}>
           <Grid item xs={4}>
-            <EventComponent />
+          <Grid item>
+                <Link href="/events" variant="body2">
+                  {"Add Event"}
+                </Link>
+                </Grid>
             <br />
             <BackgroundModal />
           </Grid>
