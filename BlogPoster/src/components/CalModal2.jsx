@@ -24,7 +24,6 @@ function CalModal2({
   onUpdateEvent,
   onDeleteEvent,
 }) {
-
   // State variables for the event details
   const [eventTitle, setEventTitle] = useState("");
   const [allDay, setAllDay] = useState(false);
@@ -36,7 +35,7 @@ function CalModal2({
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-   // Effect to initialize state when selectedEvent changes
+  // Effect to initialize state when selectedEvent changes
   useEffect(() => {
     if (selectedEvent) {
       setEventTitle(selectedEvent.title || "");
@@ -64,7 +63,6 @@ function CalModal2({
   // Rendering the modal dialog
   return (
     <Dialog open={open} onClose={onClose}>
-      
       {/* Displaying the logo */}
       <Box
         sx={{
@@ -74,8 +72,7 @@ function CalModal2({
           backgroundColor:
             theme.palette.mode === "light" ? "#fcfcfc" : colors.primary[400],
         }}
-      >
-      </Box>
+      ></Box>
 
       {/* Dialog title with close button */}
       <DialogTitle sx={{ backgroundColor: colors.primary[400] }}>
@@ -94,14 +91,14 @@ function CalModal2({
         </IconButton>
       </DialogTitle>
 
-       {/* Dialog content for event details */}
+      {/* Dialog content for event details */}
       <DialogContent
         sx={{
           backgroundColor:
             theme.palette.mode === "light" ? "#fcfcfc" : colors.primary[500],
         }}
       >
-          {/* Text field for event title */}
+        {/* Text field for event title */}
         <TextField
           fullWidth
           label="Event Title"
@@ -147,7 +144,7 @@ function CalModal2({
             },
           }}
         />
-{/* Checkbox for all-day event */}
+        {/* Checkbox for all-day event */}
         <FormControlLabel
           control={
             <Checkbox
@@ -197,7 +194,7 @@ function CalModal2({
             Delete Event
           </Button>
         )}
-        
+
         {/* Submit button for adding or updating event */}
         <Button
           onClick={handleSubmit}
