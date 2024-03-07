@@ -35,7 +35,7 @@ function EventComponent() {
 
         axios.post('http://localhost:4000/api/events/create', newEvent)
             .then(function (response) {
-                console.log(response);
+                console.log("Create event", response);
                 // Update local state with the new event
                 setEvents([...events, newEvent]);
 
@@ -56,38 +56,6 @@ function EventComponent() {
     }
 };
 
-const deleteEventSubmit = (e) => {
-  e.preventDefault();
-
-  if (title && eventDate) {
-      const newEvent = {
-          title: title,
-          start: eventDate,
-          time: eventTime,
-      };
-
-      axios.post('http://localhost:4000/api/events/create', newEvent)
-          .then(function (response) {
-              console.log(response);
-              // Update local state with the new event
-              setEvents([...events, newEvent]);
-
-              // Clear form fields after adding event
-              setTitle("");
-              setEventDescription("");
-              setEventDate("");
-              setEventTime("");
-              // Navigates to back to calendar on submit
-              navigate("/calendar");
-          })
-          .catch(function (error) {
-              console.log(error);
-              // Handle error as needed
-          });
-  } else {
-      alert("Please fill out the title and start date.");
-  }
-};
   return (
     <div>
       <Box m="20px">

@@ -27,7 +27,8 @@ Before you begin, make sure you have Node.js and npm installed on your machine.
 
 ## Usage
 
-1. Start the development server: npm run dev
+1. Start the client side: npm run dev
+2. Start the server side: nodmon API
 
 
 2. Open your web browser and navigate to [http://localhost:4000](http://localhost:4000) to view the application.
