@@ -149,65 +149,7 @@ const deleteEventSubmit = (e) => {
         </Button>
       </form>
       </Box>
-      <Box m="20px">
-      <Typography variant="h4" gutterBottom>
-        Delete Event
-      </Typography>
-      <form onSubmit={deleteEventSubmit}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <TextField
-              variant="outlined"
-              required
-              fullWidth
-              id="title"
-              label="Event Name"
-              name="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              variant="outlined"
-              required
-              fullWidth
-              id="eventDescription"
-              label="Event Description"
-              name="eventDescription"
-              multiline
-              rows={4}
-              value={eventDescription}
-              onChange={(e) => setEventDescription(e.target.value)}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              variant="outlined"
-              required
-              fullWidth
-              id="eventDate"
-              label="Date"
-              name="eventDate"
-              type="date"
-              value={eventDate}
-              onChange={(e) => setEventDate(e.target.value)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-          </Grid>
-        </Grid>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-        >
-          Delete Event
-        </Button>
-      </form>
-      </Box>
+
     </div>
     
   );

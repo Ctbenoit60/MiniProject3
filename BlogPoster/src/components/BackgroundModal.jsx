@@ -10,9 +10,19 @@ export default function Background(
 
    const [imageURL, setImageURL] = useState(defaultImageUrl);
 
-    useEffect(() => {
-      // fetch(`http://localhost:4000/api/events/${updatedEvent.id}`)
-      
+   useEffect(() => {
+    fetch(`http://localhost:4000/api/users/${userId}`)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("Get userId", result.data.backgroundURL)
+        setImageURL(result.data.backgroundURL)
+      })
+      .catch((error) => {
+        console.error("Error fetching events:", error);
+      });
+   }, [userId]);
+   
+   useEffect(() => {
       console.log("background modal", userId)
       document.body.style.backgroundImage = `url(${imageURL})`;
       document.body.style.backgroundSize = 'cover';
@@ -22,7 +32,28 @@ export default function Background(
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      setImageURL(event.target[0].value)
+      // extract the URL from the event.target
+      const newBgURL = event.target[0].value;
+      //Here we updating the user by Id
+      fetch(`http://localhost:4000/api/users/${userId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // look at the const newBgURl at a few lines above
+          backgroundURL: newBgURL,
+        }),
+      })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("HandleSubmit bgImage", result)
+        setImageURL(newBgURL)
+      })
+      .catch((error) => {
+        console.error("Error fetching events:", error);
+      });
     };
 
     return(

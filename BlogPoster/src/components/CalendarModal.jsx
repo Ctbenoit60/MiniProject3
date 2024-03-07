@@ -19,7 +19,8 @@ export default function Calendar() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const location = useLocation();
-  console.log("Calendar Load", location.state._id);
+  const temporaryUserId = location.state?._id || "65e92466f53415785d8b6407"
+  // console.log("Calendar Load", location.state._id);
 
   useEffect(() => {
     fetch(`http://localhost:4000/api/events`)
@@ -168,7 +169,7 @@ export default function Calendar() {
             </Grid>
             <br />
             <BackgroundModal 
-            userId= {location.state._id}
+            userId= {temporaryUserId}
             />
           </Grid>
           <Grid
