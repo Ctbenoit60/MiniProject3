@@ -8,6 +8,12 @@ router.get('/', (req,res) => {
     Controllers.userController.getUsers(res);
 });
 
+// Use Get Method to get user by Id
+//http://localhost:4000/api/users/<id> 
+router.get("/:id", (req, res) => {
+  Controllers.userController.updateUser(req, res);
+});
+
 // Use Post Method to create a user
 //http://localhost:4000/api/users/signup
 router.post("/signup", (req,res) => {

@@ -55,7 +55,7 @@ export default function LoginPage() {
         // Handle successful response
         console.log("Response:", response.data);
         // Navigate to another page
-        navigate("/calendar");
+        navigate("/calendar",{state:response.data.data[0]});
       })
       .catch((error) => {
         // Handle error

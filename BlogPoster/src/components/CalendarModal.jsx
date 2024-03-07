@@ -11,12 +11,15 @@ import BackgroundModal from "../components/BackgroundModal";
 // import EventComponent from "../components/EventModal";
 import { useEffect, useRef, useState } from "react";
 import CalModal2 from "../components/CalModal2";
+import { useLocation } from "react-router-dom";
 
 export default function Calendar() {
   const [events, setEvents] = useState([]);
   const calendarRef = useRef(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const location = useLocation();
+  console.log("Calendar Load", location.state._id);
 
   useEffect(() => {
     fetch(`http://localhost:4000/api/events`)
@@ -164,7 +167,9 @@ export default function Calendar() {
               </Link>
             </Grid>
             <br />
-            <BackgroundModal />
+            <BackgroundModal 
+            userId= {location.state._id}
+            />
           </Grid>
           <Grid
             item

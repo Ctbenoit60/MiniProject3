@@ -10,6 +10,17 @@ const getUsers = (res) => {
     });
 };
 
+const getUsersById = (req,res) => {
+  //GET all users
+  console.log('Find Id', req.params.id)
+  Models.User.findById(req.params.id)
+  .then((data) => res.send( {result: 200, data: data }))
+  .catch((err) => {
+      console.log(err);
+      res.send({ result: 500, error: err.message});
+  });
+};
+
 const createUser = (data,res) => {
     //Post a new user using the JSON data coming from req.body
     console.log(data);
@@ -79,4 +90,5 @@ const updateUser = (req, res) => {
     updateUser,
     deleteUser,
     loginUser,
+    getUsersById,
   };

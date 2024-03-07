@@ -1,23 +1,28 @@
 import { TextField, Button } from '@mui/material';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
-export default function Background() {
+export default function Background(
+  {userId}
+) {
 
     const defaultImageUrl = 'https://w.wallhaven.cc/full/zy/wallhaven-zyo11j.jpg';
 
-  
+   const [imageURL, setImageURL] = useState(defaultImageUrl);
 
     useEffect(() => {
-      document.body.style.backgroundImage = `url(${defaultImageUrl})`;
+      // fetch(`http://localhost:4000/api/events/${updatedEvent.id}`)
+      
+      console.log("background modal", userId)
+      document.body.style.backgroundImage = `url(${imageURL})`;
       document.body.style.backgroundSize = 'cover';
       document.body.style.backgroundPosition = 'center';
       document.body.style.backgroundRepeat = 'no-repeat';
-    }, []);
+    }, [imageURL, userId]);
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      // Here you can send the imageUrl to your API or perform any other actions
+      setImageURL(event.target[0].value)
     };
 
     return(
@@ -27,6 +32,7 @@ export default function Background() {
             <div className="mb-3">
               <TextField
                 id="imageUrl"
+                name='imageUrl'
                 label="Background Image URL"
                 variant="outlined"
                 fullWidth

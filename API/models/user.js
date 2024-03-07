@@ -6,6 +6,7 @@ const userSchema = new Schema({
   password: { type: String },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
+  backgroundURL: {type: String, default: "https://w.wallhaven.cc/full/zy/wallhaven-zyo11j.jpg" },
 });
 
 module.exports = mongoose.model("user", userSchema);
