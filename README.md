@@ -1,6 +1,6 @@
-# MiniProject3
+# Personalizz
 
-Fullstack Post App using Mongo, Express, React, Node
+Fullstack App using Mongo, Express, React, Node
 
 ## Table of Contents
 - [Installation](#installation)
