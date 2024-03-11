@@ -5,7 +5,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import * as bootstrap from "bootstrap"; // Importing bootstrap for popover
 import "bootstrap/dist/css/bootstrap.min.css"; // Importing Bootstrap CSS
 import "../index.css"; // Importing custom CSS
-import { Grid, Link } from "@mui/material";
+import { Grid, Button } from "@mui/material";
 import Box from "@mui/system/Box";
 import BackgroundModal from "../components/BackgroundModal";
 // import EventComponent from "../components/EventModal";
@@ -163,14 +163,18 @@ export default function Calendar() {
         <Grid container spacing={2}>
           <Grid item xs={4}>
             <Grid item>
-              <Link href="/events" variant="body2">
+              <Button href="/events" variant="body2"
+              sx={{ bgcolor: "text.secondary", color: "background.paper" }}>
                 {"Add Event"}
-              </Link>
+              </Button>
             </Grid>
             <br />
+            <Grid>
             <BackgroundModal 
             userId= {temporaryUserId}
             />
+            </Grid>
+           
           </Grid>
           <Grid
             item
