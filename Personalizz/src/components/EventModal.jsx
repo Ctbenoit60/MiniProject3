@@ -58,7 +58,7 @@ function EventComponent() {
 
   return (
     <div>
-      <Box m="20px">
+      <Box m="300px">
       <Typography variant="h4" gutterBottom>
         Add New Event
       </Typography>
