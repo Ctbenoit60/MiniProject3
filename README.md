@@ -31,7 +31,7 @@ Personalizz is an app that offers a straightforward solution to the need for cus
 2. Navigate to the project directory: `cd MiniProject3`
 
 3. Install the dependencies for the frontend and backend:
-- `cd BlogPoster`
+- `cd Personalizz`
 - `npm install`
 
 - `cd API`
@@ -50,7 +50,7 @@ Personalizz is an app that offers a straightforward solution to the need for cus
   - `cd API`
   - `nodemon API`
 - Frontend, in a seperate terminal:
-  - `cd BlogPoster`
+  - `cd Personalizz`
   - `npm run dev`
 
 
