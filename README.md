@@ -60,5 +60,5 @@ Personalizz is an app that offers a straightforward solution to the need for cus
 As the app is still under construction, we are open to ideas and suggestions. If you're interested in contributing or have feedback, please reach out to Christina Stutes.
 
 ## Contact
-For inquiries, suggestions, or collaboration opportunities, please contact Jason Ehrlicher at [jason.ehrlicher@gmail.com](mailto:christina@@christinastutes.com).
+For inquiries, suggestions, or collaboration opportunities, please contact Jason Ehrlicher at [christina@christinastutes.com](mailto:christina@@christinastutes.com).
 
