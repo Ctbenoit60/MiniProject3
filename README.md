@@ -28,7 +28,7 @@ Personalizz is an app that offers a straightforward solution to the need for cus
 
 1. Clone the repository to your local machine: `https://github.com/Ctbenoit60/MiniProject3.git`
 
-2. Navigate to the project directory: `cd MiniProject3`
+2. Navigate to the project directory: `cd Personalizz`
 
 3. Install the dependencies for the frontend and backend:
 - `cd Personalizz`
