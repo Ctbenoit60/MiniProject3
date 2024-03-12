@@ -25,11 +25,17 @@ function EventComponent() {
   const addEventSubmit = (e) => {
     e.preventDefault();
 
+     // Parse the eventDate to a JavaScript Date object
+     const startDate = new Date(eventDate);
+        
+     // Add 24 hours (in milliseconds) to the startDate
+     startDate.setTime(startDate.getTime() + (24 * 60 * 60 * 1000));
+
     if (title && eventDate) {
         const newEvent = {
             title: title,
             description: eventDescription,
-            start: eventDate,
+            start: startDate.toISOString(), // Convert back to ISO string format
             time: eventTime,
         };
 
